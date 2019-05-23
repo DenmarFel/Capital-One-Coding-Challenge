@@ -12,5 +12,9 @@ def home():
 def results(state):
     return render_template('results.html', webApp=webApp, value=state)
 
+@app.route('/park/<parkCode>')
+def park(parkCode):
+	return render_template('park.html', webApp=webApp, value=parkCode)
+
 if __name__ == '__main__':
     app.run(debug=True)

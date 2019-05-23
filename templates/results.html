@@ -10,7 +10,7 @@
     </div>
     {% for parkCode in webApp.parkCodesByState(value) %}
         <p>{{ webApp.parkName(parkCode) }}</p>
-        <br>
+        <a href="{{ url_for('park', parkCode=parkCode)}}">Plan your Trip!</a>
         <p>{{ webApp.parkDescription(parkCode) }}</p>
         <br>
     {% endfor %}
