@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NPS - Info</title>
+    </head>
+    
+    <body>
+    <div class = card>
+        <p class = park-type>This is the results page!</p> 
+    </div>
+    {% for parkCode in webApp.parkCodesByState(value) %}
+        <p>{{ webApp.parkName(parkCode) }}</p>
+        <br>
+        <p>{{ webApp.parkDescription(parkCode) }}</p>
+        <br>
+    {% endfor %}
+    </body>
+</html>
