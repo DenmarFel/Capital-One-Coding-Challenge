@@ -5,6 +5,18 @@
     </head>
     
     <body>
-    <p>{{ webApp.parkName(value)}}</p>
+    <h1>{{ webApp.parkName(value)}}</h1>
+    {% if webApp.ifParkAlertsNotZero(value) %}
+        <h3>Alerts</h3>
+        {% for alert in webApp.getParkAlerts(value) %}
+            <p>{{ alert['title'] }}</p>
+            <p>{{ alert['category'] }}</p>
+            <p>{{ alert['description'] }}</p>
+        {% endfor %}
+    {% endif %}
+    <h3>Directions</h3>
+    <p>{{ webApp.parkDirections(value)}}</p>
+    <h3>Weather Conditions</h3>
+    <p>{{ webApp.parkWeather(value)}}</p>
     </body>
 </html>
