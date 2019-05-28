@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block centerContent %}
 
-{% for park in webApp.parksByState(value) %}
+{% for park in webApp.parksBySearch(q) %}
     <p>{{ park['name'] }}</p>
     <a href="{{ url_for('park', parkCode=park['parkCode'])}}">Plan your Trip!</a>
     <p>{{ park['description'] }}</p>

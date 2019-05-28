@@ -1,16 +1,25 @@
 from flask import Flask, render_template, url_for, request, redirect
 from npsAPI import * 
+from forms import ParkSearchForm
 app = Flask(__name__)
 
 #Home Page
-@app.route('/')
-@app.route('/home')
+@app.route('/', methods=['GET','POST'])
+@app.route('/home', methods=['GET','POST'])
 def home():
-	return render_template('home.html', api_key=api_key)
+    search = ParkSearchForm(request.form)
+    if request.method == 'POST':
+        return searchresults(search)
+    return render_template('home.html', api_key=api_key, form=search)
 
 @app.route('/results/<state>')
 def results(state):
     return render_template('results.html', webApp=webApp, value=state)
+
+@app.route('/searchresults/<q>')
+def searchresults(search):
+    q = search.data['search']
+    return render_template('searchresults.html', webApp=webApp, q=q)
 
 @app.route('/park/<parkCode>')
 def park(parkCode):

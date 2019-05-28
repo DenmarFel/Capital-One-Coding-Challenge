@@ -8,94 +8,97 @@ class NPS():
     def __init__(self, api_key: str):
         self._apiKey = api_key
 
-    def getStandardHours(self, parkCode):
-        r = requests.get('https://developer.nps.gov/api/v1/parks?parkCode=' + parkCode + 
-        '&fields=operatingHours&api_key=' + self._apiKey)
-        data = r.json()
-        items = data['data']
-        items = items[0]
-        result = items['operatingHours']
-        result = result[0]
-        print(result['standardHours'])
-
-    def listParksByState(self, stateCode):
+    def parksByState(self, stateCode):
         r = requests.get('https://developer.nps.gov/api/v1/parks?stateCode=' + stateCode +
         '&api_key=' + self._apiKey)
         data = r.json()
-        result = []
-        for park in data['data']:
-            result.append(park['fullName'])
-        return result
+        data = data['data']
+        return data
 
-    def parkCodesByState(self, stateCode):
-        r = requests.get('https://developer.nps.gov/api/v1/parks?stateCode=' + stateCode +
-        '&api_key=' + self._apiKey)
-        data = r.json()
-        result = []
-        for park in data['data']:
-            result.append(park['parkCode'])
-        return result
-
-    def parkDescription(self, parkCode):
-        '''Returns description of park'''
-        r = requests.get('https://developer.nps.gov/api/v1/parks?parkCode=' + parkCode +
+    def parksBySearch(self, q:str):
+        r = requests.get('https://developer.nps.gov/api/v1/parks?q=' + q +
         '&api_key=' + self._apiKey)
         data = r.json()
         data = data['data']
-        data = data[0]
-        result = data['description']
-        return result
-    
-    def parkName(self, parkCode) -> str:
-        '''Returns description of park'''
-        r = requests.get('https://developer.nps.gov/api/v1/parks?parkCode=' + parkCode +
-        '&api_key=' + self._apiKey)
-        data = r.json()
-        data = data['data']
-        data = data[0]
-        result = data['name']
-        return result
+        return data
 
-    def parkWeather(self, parkCode) -> str:
-        '''Returns weather information of specific park'''
-        r = requests.get('https://developer.nps.gov/api/v1/parks?parkCode=' + parkCode +
-        '&api_key=' + self._apiKey)
-        data = r.json()
-        data = data['data']
-        data = data[0]
-        result = data['weatherInfo']
-        return result
-    
-    def parkDirections(self,parkCode) -> str:
-        r = requests.get('https://developer.nps.gov/api/v1/parks?parkCode=' + parkCode +
-        '&api_key=' + self._apiKey)
-        data = r.json()
-        data = data['data']
-        data = data[0]
-        result = data['directionsInfo']
-        return result
 
+    def parkData(self, parkCode):
+        r = requests.get('https://developer.nps.gov/api/v1/parks?parkCode=' + parkCode +
+        '&fields=image&api_key=' + self._apiKey)
+        data = r.json()
+        data = data['data'][0]
+        return data
+
+    # Alerts
     def getParkAlerts(self, parkCode) -> list:
         r = requests.get('https://developer.nps.gov/api/v1/alerts?parkCode=' + parkCode +
         '&api_key=' + self._apiKey)
         data = r.json()
         data = data['data']
-        result = []
-        for alert in data:
-            result.append(alert)
-        return result
+        return data
     
     def ifParkAlertsNotZero(self, parkCode) -> bool:
         if len(self.getParkAlerts(parkCode)) > 0:
-            result = True
-        else:
-            result = False
-        return result
+            return True
 
-    def getParkCampgrounds(self, parkCode) -> list:
-        pass
+    # Campgrounds------------------------------------
+    def getParkCampgroundData(self, parkCode) -> list:
+        r = requests.get('https://developer.nps.gov/api/v1/campgrounds?parkCode=' + parkCode +
+        '&api_key=' + self._apiKey)
+        data = r.json()
+        data = data['data']
+        return data
+    
+    def ifCampgroundNotZero(self, parkCode) -> bool:
+        if len(self.getParkCampgroundData(parkCode)) > 0:
+            return True
+    #------------------------------------------------
+
+    # Visitor Centers
+    def getVisitorcentersData(self, parkCode) -> list:
+        r = requests.get('https://developer.nps.gov/api/v1/visitorcenters?parkCode=' + parkCode +
+        '&api_key=' + self._apiKey)
+        data = r.json()
+        data = data['data']
+        return data
+    
+    def ifVisitorcentersNotZero(self, parkCode) -> bool:
+        if len(self.getVisitorcentersData(parkCode)) > 0:
+            return True
         
+    # Articles 
+    def getArticleData(self, parkCode) -> list:
+        r = requests.get('https://developer.nps.gov/api/v1/articles?parkCode=' + parkCode +
+        '&api_key=' + self._apiKey)
+        data = r.json()
+        data = data['data']
+        return data
+
+    def ifArticlesNotZero(self, parkCode) -> bool:
+        if len(self.getArticleData(parkCode)) > 0:
+            return True
+
+    # News
+    def getNewsData(self, parkCode) -> list:
+        r = requests.get('https://developer.nps.gov/api/v1/newsreleases?parkCode=' + parkCode +
+        '&api_key=' + self._apiKey)
+        data = r.json()
+        data = data['data']
+        return data
+    
+    def ifNewsReleasesNotZero(self, parkCode) -> bool:
+        if len(self.getNewsData(parkCode)) > 0:
+            return True
 
 webApp = NPS(api_key)
+'''
+for park in webApp.getParkCampgroundData('yose'):
+    print(park['name'])
 
-
+print(webApp.ifCampgroundNotZero('yose'))
+'''
+'''
+for center in webApp.getVisitorcentersData('zion'):
+    print(center['name'])
+'''

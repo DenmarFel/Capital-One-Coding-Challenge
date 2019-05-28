@@ -1,22 +1,65 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>NPS - Info</title>
-    </head>
-    
-    <body>
-    <h1>{{ webApp.parkName(value)}}</h1>
-    {% if webApp.ifParkAlertsNotZero(value) %}
-        <h3>Alerts</h3>
-        {% for alert in webApp.getParkAlerts(value) %}
-            <p>{{ alert['title'] }}</p>
-            <p>{{ alert['category'] }}</p>
-            <p>{{ alert['description'] }}</p>
-        {% endfor %}
-    {% endif %}
-    <h3>Directions</h3>
-    <p>{{ webApp.parkDirections(value)}}</p>
-    <h3>Weather Conditions</h3>
-    <p>{{ webApp.parkWeather(value)}}</p>
-    </body>
-</html>
+{% extends "layout.html" %}
+
+{% block centerContent %}
+
+<h1>{{ webApp.parkData(value)['name'] }}</h1>
+<p><i>{{ webApp.parkData(value)['designation'] }}</i></p>
+<p>{{ webApp.parkData(value)['description'] }}</p>
+
+{% if webApp.ifParkAlertsNotZero(value) %}
+<h3>Alerts</h3>
+{% for alert in webApp.getParkAlerts(value) %}
+    <p><i>{{ alert['title'] }}</i></p>
+    <h4>{{ alert['category'] }}</h4>
+    <p>{{ alert['description'] }}</p>
+{% endfor %}
+{% endif %}
+
+
+<h3>Directions</h3>
+<p>{{ webApp.parkData(value)['directionsInfo']}}</p>
+
+
+<h3>Weather Conditions</h3>
+<p>{{ webApp.parkData(value)['weatherInfo'] }}</p>
+
+
+{% if webApp.ifCampgroundNotZero(value) %}
+<h3>Campgrounds</h3>
+{% for campground in webApp.getParkCampgroundData(value) %}
+    <p>{{ campground['name'] }}</p>
+    <p>{{ campground['description'] }}</p>
+{% endfor %}
+{% endif %}
+
+
+{% if webApp.ifVisitorcentersNotZero(value) %}
+<h3>Visitor Centers</h3>
+{% for center in webApp.getVisitorcentersData(value) %}
+    <h4>{{ center['name'] }}</h4>
+    <p>{{ center['description'] }}</p>
+{% endfor %}
+{% endif %}
+
+
+{% if webApp.ifArticlesNotZero(value) %}
+<h3>Articles</h3>
+{% for article in webApp.getArticleData(value) %}
+    <h4><a href="{{ article['url']}}">{{ article['title'] }}</a></h4>
+{% endfor %}
+{% endif %}
+
+
+<h3>Events</h3>
+
+{% if webApp.ifNewsReleasesNotZero %}
+<h3>News Releases</h3>
+{% for news in webApp.getNewsData(value) %}
+    <h4><a href="{{ news['url'] }}">{{ news['title'] }}</a></h4>
+    <img src="{{ news['url'] }}" alt="">
+{% endfor %}
+{% endif %}
+
+<h3>Images</h3>
+
+{% endblock centerContent %}
