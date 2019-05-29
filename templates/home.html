@@ -1,78 +1,78 @@
 {% extends "layout.html" %}
-{% block leftSideContent %}
-{% endblock leftSideContent %}
-{% block centerContent %}
+{% block content %}
 
 <div id="homeText">
-<h1>Explore America's Wonders!</h1>
-<select onChange="window.location.href=this.value">
-        <option value=""disabled selected hidden>Find by State</option>
-        <option value="{{ url_for('results', state='al')}}">Alabama</option>
-        <option value="{{ url_for('results', state='ak')}}">Alaska</option>
-        <option value="{{ url_for('results', state='as')}}">American Samoa</option>
-        <option value="{{ url_for('results', state='az')}}">Arizona</option>
-        <option value="{{ url_for('results', state='ar')}}">Arkansas</option>
-        <option value="{{ url_for('results', state='ca')}}">California</option>
-        <option value="{{ url_for('results', state='co')}}">Colorado</option>
-        <option value="{{ url_for('results', state='ct')}}">Connecticut</option>
-        <option value="{{ url_for('results', state='de')}}">Delaware</option>
-        <option value="{{ url_for('results', state='dc')}}">District of Columbia</option>
-        <option value="{{ url_for('results', state='fl')}}">Florida</option>
-        <option value="{{ url_for('results', state='ga')}}">Georgia</option>
-        <option value="{{ url_for('results', state='gu')}}">Guam</option>
-        <option value="{{ url_for('results', state='hi')}}">Hawaii</option>
-        <option value="{{ url_for('results', state='id')}}">Idaho</option>
-        <option value="{{ url_for('results', state='il')}}">Illinois</option>
-        <option value="{{ url_for('results', state='in')}}">Indiana</option>
-        <option value="{{ url_for('results', state='ia')}}">Iowa</option>
-        <option value="{{ url_for('results', state='ka')}}">Kansas</option>
-        <option value="{{ url_for('results', state='ky')}}">Kentucky</option>
-        <option value="{{ url_for('results', state='la')}}">Louisiana</option>
-        <option value="{{ url_for('results', state='me')}}">Maine</option>
-        <option value="{{ url_for('results', state='md')}}">Maryland</option>
-        <option value="{{ url_for('results', state='ma')}}">Massachusetts</option>
-        <option value="{{ url_for('results', state='mi')}}">Michigan</option>
-        <option value="{{ url_for('results', state='mn')}}">Minnesota</option>
-        <option value="{{ url_for('results', state='ms')}}">Mississippi</option>
-        <option value="{{ url_for('results', state='mo')}}">Missouri</option>
-        <option value="{{ url_for('results', state='mt')}}">Montana</option>
-        <option value="{{ url_for('results', state='ne')}}">Nebraska</option>
-        <option value="{{ url_for('results', state='nv')}}">Nevada</option>
-        <option value="{{ url_for('results', state='nh')}}">New Hampshire</option>
-        <option value="{{ url_for('results', state='nj')}}">New Jersey</option>
-        <option value="{{ url_for('results', state='nm')}}">New Mexico</option>
-        <option value="{{ url_for('results', state='ny')}}">New York</option>
-        <option value="{{ url_for('results', state='nc')}}">North Carolina</option>
-        <option value="{{ url_for('results', state='nd')}}">North Dakota</option>
-        <option value="{{ url_for('results', state='mp')}}">Northern Mariana Islands</option>
-        <option value="{{ url_for('results', state='oh')}}">Ohio</option>
-        <option value="{{ url_for('results', state='ok')}}">Oklahoma</option>
-        <option value="{{ url_for('results', state='or')}}">Oregon</option>
-        <option value="{{ url_for('results', state='pa')}}">Pennsylvania</option>
-        <option value="{{ url_for('results', state='pr')}}">Puerto Rico</option>
-        <option value="{{ url_for('results', state='ri')}}">Rhode Island</option>
-        <option value="{{ url_for('results', state='sc')}}">South Carolina</option>
-        <option value="{{ url_for('results', state='sd')}}">South Dakota</option>
-        <option value="{{ url_for('results', state='tn')}}">Tennessee</option>
-        <option value="{{ url_for('results', state='tx')}}">Texas</option>
-        <option value="{{ url_for('results', state='ut')}}">Utah</option>
-        <option value="{{ url_for('results', state='vt')}}">Vermont</option>
-        <option value="{{ url_for('results', state='vi')}}">Virgin Islands</option>
-        <option value="{{ url_for('results', state='va')}}">Virginia</option>
-        <option value="{{ url_for('results', state='wa')}}">Washington</option>
-        <option value="{{ url_for('results', state='wv')}}">West Virginia</option>
-        <option value="{{ url_for('results', state='wi')}}">Wisconsin</option>
-        <option value="{{ url_for('results', state='wy')}}">Wyoming</option>
-</select>
-{% from "_formhelpers.html" import render_field %}
-<form method=post id="searchForm">
-{{ render_field(form.search, placeholder="Enter Park Here") }}
-<button type=submit>Search</button>
-</form>
+    <div id="searchCard">
+    <h1>Explore America's Wonders!</h1>
+        <div id="stateLookup">
+            <select onChange="window.location.href=this.value">
+                    <option value=""disabled selected hidden>Find by State</option>
+                    <option value="{{ url_for('results', state='al')}}">Alabama</option>
+                    <option value="{{ url_for('results', state='ak')}}">Alaska</option>
+                    <option value="{{ url_for('results', state='as')}}">American Samoa</option>
+                    <option value="{{ url_for('results', state='az')}}">Arizona</option>
+                    <option value="{{ url_for('results', state='ar')}}">Arkansas</option>
+                    <option value="{{ url_for('results', state='ca')}}">California</option>
+                    <option value="{{ url_for('results', state='co')}}">Colorado</option>
+                    <option value="{{ url_for('results', state='ct')}}">Connecticut</option>
+                    <option value="{{ url_for('results', state='de')}}">Delaware</option>
+                    <option value="{{ url_for('results', state='dc')}}">District of Columbia</option>
+                    <option value="{{ url_for('results', state='fl')}}">Florida</option>
+                    <option value="{{ url_for('results', state='ga')}}">Georgia</option>
+                    <option value="{{ url_for('results', state='gu')}}">Guam</option>
+                    <option value="{{ url_for('results', state='hi')}}">Hawaii</option>
+                    <option value="{{ url_for('results', state='id')}}">Idaho</option>
+                    <option value="{{ url_for('results', state='il')}}">Illinois</option>
+                    <option value="{{ url_for('results', state='in')}}">Indiana</option>
+                    <option value="{{ url_for('results', state='ia')}}">Iowa</option>
+                    <option value="{{ url_for('results', state='ka')}}">Kansas</option>
+                    <option value="{{ url_for('results', state='ky')}}">Kentucky</option>
+                    <option value="{{ url_for('results', state='la')}}">Louisiana</option>
+                    <option value="{{ url_for('results', state='me')}}">Maine</option>
+                    <option value="{{ url_for('results', state='md')}}">Maryland</option>
+                    <option value="{{ url_for('results', state='ma')}}">Massachusetts</option>
+                    <option value="{{ url_for('results', state='mi')}}">Michigan</option>
+                    <option value="{{ url_for('results', state='mn')}}">Minnesota</option>
+                    <option value="{{ url_for('results', state='ms')}}">Mississippi</option>
+                    <option value="{{ url_for('results', state='mo')}}">Missouri</option>
+                    <option value="{{ url_for('results', state='mt')}}">Montana</option>
+                    <option value="{{ url_for('results', state='ne')}}">Nebraska</option>
+                    <option value="{{ url_for('results', state='nv')}}">Nevada</option>
+                    <option value="{{ url_for('results', state='nh')}}">New Hampshire</option>
+                    <option value="{{ url_for('results', state='nj')}}">New Jersey</option>
+                    <option value="{{ url_for('results', state='nm')}}">New Mexico</option>
+                    <option value="{{ url_for('results', state='ny')}}">New York</option>
+                    <option value="{{ url_for('results', state='nc')}}">North Carolina</option>
+                    <option value="{{ url_for('results', state='nd')}}">North Dakota</option>
+                    <option value="{{ url_for('results', state='mp')}}">Northern Mariana Islands</option>
+                    <option value="{{ url_for('results', state='oh')}}">Ohio</option>
+                    <option value="{{ url_for('results', state='ok')}}">Oklahoma</option>
+                    <option value="{{ url_for('results', state='or')}}">Oregon</option>
+                    <option value="{{ url_for('results', state='pa')}}">Pennsylvania</option>
+                    <option value="{{ url_for('results', state='pr')}}">Puerto Rico</option>
+                    <option value="{{ url_for('results', state='ri')}}">Rhode Island</option>
+                    <option value="{{ url_for('results', state='sc')}}">South Carolina</option>
+                    <option value="{{ url_for('results', state='sd')}}">South Dakota</option>
+                    <option value="{{ url_for('results', state='tn')}}">Tennessee</option>
+                    <option value="{{ url_for('results', state='tx')}}">Texas</option>
+                    <option value="{{ url_for('results', state='ut')}}">Utah</option>
+                    <option value="{{ url_for('results', state='vt')}}">Vermont</option>
+                    <option value="{{ url_for('results', state='vi')}}">Virgin Islands</option>
+                    <option value="{{ url_for('results', state='va')}}">Virginia</option>
+                    <option value="{{ url_for('results', state='wa')}}">Washington</option>
+                    <option value="{{ url_for('results', state='wv')}}">West Virginia</option>
+                    <option value="{{ url_for('results', state='wi')}}">Wisconsin</option>
+                    <option value="{{ url_for('results', state='wy')}}">Wyoming</option>
+            </select>
+        </div>
 
+        {% from "_formhelpers.html" import render_field %}
+        <form method=post id="searchForm">
+            <button type=submit>Explore</button>
+            {{ render_field(form.search, placeholder="Enter Park Here") }}
+        </form>
+    </div>
 </div>
 
 
-{% endblock centerContent %}
-{% block rightSideContent %}
-{% endblock rightSideContent %}
+{% endblock content %}

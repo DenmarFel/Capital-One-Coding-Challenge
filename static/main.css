@@ -2,6 +2,11 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    background: url('\\static\\images\\national-park.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 nav ul {
@@ -28,24 +33,59 @@ nav ul li a:hover {
     background-color: #111;
   }
 
-#homeText {
+#homeText input[type=text] {
+    border: none;
     text-align: center;
+    width: 80%;
+    font-size: 20px;
+    padding: 4px;
+    border-radius: 18px 0px 0px 18px;
 }
-
-#homeText select {
-    text-align: center;
+  
+#homeText form button {
+    float: right;
+    width: 20%;
+    font-size: 20px;
+    padding: 4px;
+    border: none;
+    border-radius: 0px 18px 18px 0px;
 }
 
 #homeText dd {
     margin-left: 0px;
 }
 
-#homeText input[type=text] {
+#stateLookup select {
+    margin-bottom: 30px;
+    width: 100%;
+    border: none;
+    border-radius: 18px;
+    font-size: 20px;
+    padding: 4px;
+    text-align: center;
+    color:#767676;
+}
+
+#stateLookup select:focus {
+    border-radius: 18px 18px 0px 0px;
+}
+
+#searchCard {
+    height: 40%;
+    width: 60%;
+    background-color: rgba(35, 40, 40, 0.8);
+    border-radius: 18px;
+    padding: 2.5%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
 }
-  
-#homeText form button {
-    display: inline-block;
+
+#searchCard h1 {
+    margin-bottom: 40px;
+    color: #F6F9E7;
 }
 
 
@@ -54,12 +94,29 @@ nav ul li a:hover {
     float: left;
 }
 
+.leftSideContent a {
+    display: block;
+}
+
 .centerContent {
     width: 60%; 
     float: left;
+    display: block;
+}
+
+.centerContent a {
+    display: block;
+    text-decoration: none;
+}
+
+.parkCard {
+    background-color: teal;
+    padding: 10px;
 }
 
 .rightSideContent {
     width: 20%; 
     float: left;
 }
+
+

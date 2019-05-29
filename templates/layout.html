@@ -5,6 +5,7 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='main.css')}}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
 </head>
 
 <body>
@@ -17,17 +18,22 @@
         <li><a href="#">About</a></li>
     </ul>
 </nav>
+
+{% block content %}{% endblock %}
+
 <div class="leftSideContent">
-<p> </p>
+
 {% block leftSideContent %}{% endblock %}
 </div>
 <div class="centerContent">
-<p> </p>
+
 {% block centerContent %}{% endblock %}
 </div>
 <div class="rightSideContent">
-<p> </p>
+
 {% block rightSideContent %}{% endblock %}
 </div>
+
+<script src="app.js"></script>
 </body>
 </html>
