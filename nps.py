@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect
 from npsAPI import * 
 from forms import ParkSearchForm
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 
 #Home Page
 @app.route('/', methods=['GET','POST'])
