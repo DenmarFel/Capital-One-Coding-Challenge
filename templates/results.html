@@ -9,7 +9,6 @@
         {% endfor %}
 </div>
 {% endblock leftSideContent %}
-
 {% block centerContent %}
 {% for park in webApp.parksByState(value) %}
 <a href="{{ url_for('park', parkCode=park['parkCode'])}}">
@@ -17,7 +16,9 @@
         <p>{{ park['name'] }}</p>
         <p>{{ park['description'] }}</p>
         <br>
-        <img src="\static\images\national-park.jpg">
+        {% if park['images']|length > 0 %}
+            <img src="{{ park['images'][0]['url']}}">
+        {% endif %}
     </div>
 </a>
 {% endfor %}

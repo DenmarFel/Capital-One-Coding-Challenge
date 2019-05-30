@@ -6,7 +6,7 @@
 <p><i>{{ webApp.parkData(value)['designation'] }}</i></p>
 <p>{{ webApp.parkData(value)['description'] }}</p>
 
-{% if webApp.ifParkAlertsNotZero(value) %}
+{% if webApp.getParkAlerts(value)|length > 0 %}
 <h3>Alerts</h3>
 {% for alert in webApp.getParkAlerts(value) %}
     <p><i>{{ alert['title'] }}</i></p>
@@ -24,7 +24,7 @@
 <p>{{ webApp.parkData(value)['weatherInfo'] }}</p>
 
 
-{% if webApp.ifCampgroundNotZero(value) %}
+{% if webApp.getParkCampgroundData(value)|length > 0 %}
 <h3>Campgrounds</h3>
 {% for campground in webApp.getParkCampgroundData(value) %}
     <p>{{ campground['name'] }}</p>
@@ -33,7 +33,7 @@
 {% endif %}
 
 
-{% if webApp.ifVisitorcentersNotZero(value) %}
+{% if webApp.getVisitorcentersData(value)|length > 0 %}
 <h3>Visitor Centers</h3>
 {% for center in webApp.getVisitorcentersData(value) %}
     <h4>{{ center['name'] }}</h4>
@@ -42,7 +42,7 @@
 {% endif %}
 
 
-{% if webApp.ifArticlesNotZero(value) %}
+{% if webApp.getArticleData(value)|length > 0 %}
 <h3>Articles</h3>
 {% for article in webApp.getArticleData(value) %}
     <h4><a href="{{ article['url']}}">{{ article['title'] }}</a></h4>
@@ -52,7 +52,7 @@
 
 <h3>Events</h3>
 
-{% if webApp.ifNewsReleasesNotZero %}
+{% if webApp.getNewsData(value)|length > 0 %}
 <h3>News Releases</h3>
 {% for news in webApp.getNewsData(value) %}
     <h4><a href="{{ news['url'] }}">{{ news['title'] }}</a></h4>

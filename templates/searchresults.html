@@ -15,10 +15,12 @@
 {% for park in webApp.parksBySearch(q) %}
 <a href="{{ url_for('park', parkCode=park['parkCode'])}}">
     <div id="resultsCard" class="card">
-        <p>{{ park['name'] }}</p>
+        <p>{{ park['fullName'] }}</p>
         <p>{{ park['description'] }}</p>
         <br>
-        <img src="\static\images\national-park.jpg">
+        {% if park['images']|length > 0 %}
+            <img src="{{ park['images'][0]['url']}}">
+        {% endif %}
     </div>
 </a>
 {% endfor %}
