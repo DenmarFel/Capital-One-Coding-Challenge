@@ -1,24 +1,24 @@
 {% extends "layout.html" %}
 {% block leftSideContent %}
-<h3>Quick Navigation</h3>
-{% for park in webApp.parksByState(value) %}
-<a href="{{ url_for('park', parkCode=park['parkCode'])}}">{{ park['name'] }}</a>
-{% endfor %}
-
+<div id="quickNavCard" class="card">
+    <h2>Quick Navigation</h2>
+        {% for park in webApp.parksByState(value) %}
+        <div id ="quickNavLinkCard" class="card">
+        <a href="{{ url_for('park', parkCode=park['parkCode'])}}">{{ park['name'] }}</a>
+        </div>
+        {% endfor %}
+</div>
 {% endblock leftSideContent %}
 
-
 {% block centerContent %}
-<h1>Parks in *state*</h1>
 {% for park in webApp.parksByState(value) %}
 <a href="{{ url_for('park', parkCode=park['parkCode'])}}">
-<div class="w3-card w3-black w3-round-xlarge w3-hover-shadow w3-padding-small w3-section">
-    <p>{{ park['name'] }}</p>
-    <p>{{ park['description'] }}</p>
-    <br>
-</div>
+    <div id="resultsCard" class="card">
+        <p>{{ park['name'] }}</p>
+        <p>{{ park['description'] }}</p>
+        <br>
+        <img src="\static\images\national-park.jpg">
+    </div>
 </a>
 {% endfor %}
-
-
 {% endblock centerContent %}

@@ -7,6 +7,11 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    font-family: 'Varela Round', sans-serif;
+}
+
+nav {
+    display: inline;
 }
 
 nav ul {
@@ -21,11 +26,19 @@ nav ul li {
     float: right;
 }
 
+#logo {
+    float: left;
+    color: white;
+    font-size: 1.5em;
+    margin-left: 0.5em;
+    margin-top: 0.5em;
+}
+
 nav ul li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 1em 1em;
     text-decoration: none;
 }
 
@@ -33,61 +46,77 @@ nav ul li a:hover {
     background-color: #111;
   }
 
-#homeText input[type=text] {
-    border: none;
-    text-align: center;
-    width: 80%;
-    font-size: 20px;
-    padding: 4px;
-    border-radius: 18px 0px 0px 18px;
-}
-  
-#homeText form button {
-    float: right;
-    width: 20%;
-    font-size: 20px;
-    padding: 4px;
-    border: none;
-    border-radius: 0px 18px 18px 0px;
-}
-
-#homeText dd {
-    margin-left: 0px;
-}
-
 #stateLookup select {
-    margin-bottom: 30px;
+    margin-bottom: 2em;
     width: 100%;
     border: none;
-    border-radius: 18px;
-    font-size: 20px;
-    padding: 4px;
+    border-radius: 1em;
+    font-size: 1em;
+    padding: .4em;
     text-align: center;
     color:#767676;
+    font-family: 'Varela Round', sans-serif !important;
 }
 
 #stateLookup select:focus {
-    border-radius: 18px 18px 0px 0px;
+    border-radius: 1em 1em 0em 0em;
 }
 
 #searchCard {
-    height: 40%;
     width: 60%;
     background-color: rgba(35, 40, 40, 0.8);
-    border-radius: 18px;
-    padding: 2.5%;
     position: fixed;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
 }
 
 #searchCard h1 {
-    margin-bottom: 40px;
+    margin-bottom: 1em;
     color: #F6F9E7;
 }
 
+#searchForm {
+    width: 100%;
+}
+
+#homeText input[type=text] {
+    border: none;
+    text-align: center;
+    width: 75%;
+    font-size: 1em;
+    padding: .4em;
+    border-radius: 1em 1em 1em 1em;
+    float: left;
+    margin-bottom: 2em;
+    font-family: 'Varela Round', sans-serif !important
+}
+  
+#homeText form button {
+    float: right;
+    width: 20%;
+    font-size: 1em;
+    padding: .4em;
+    border: none;
+    border-radius: 1em 1em 1em 1em;
+    margin-bottom: 2em;
+    font-family: 'Varela Round', sans-serif !important
+}
+
+#homeText dd {
+    margin-left: 0em;
+}
+
+a {
+    color: white;
+}
+
+.card {
+    border-radius: 1em;
+    padding: 2.5%;
+    margin: 1em; 
+}
 
 .leftSideContent {
     width: 20%; 
@@ -98,10 +127,28 @@ nav ul li a:hover {
     display: block;
 }
 
+#quickNavCard {
+    background-color: rgba(35, 40, 40, 0.95); 
+    text-align: center;
+}
+
+#quickNavCard h2 {
+    color: white;
+}
+
+#quickNavCard a:link {
+    color: white
+}
+
+
+#quickNavLinkCard:hover {
+    background-color: rgba(32, 55, 52, 1);
+    transform: scale(1.1,1.1)
+}
+
 .centerContent {
-    width: 60%; 
+    width: 80%; 
     float: left;
-    display: block;
 }
 
 .centerContent a {
@@ -109,14 +156,23 @@ nav ul li a:hover {
     text-decoration: none;
 }
 
-.parkCard {
-    background-color: teal;
-    padding: 10px;
+#resultsCard {
+    background-color: rgba(35, 40, 40, 0.95);
 }
 
-.rightSideContent {
-    width: 20%; 
-    float: left;
+#resultsCard a {
+    color: white
 }
+
+#resultsCard img {
+    width: 10em;
+    height: 7em;
+}
+
+#resultsCard:hover {
+    background-color: rgba(32, 55, 52, 1);
+    transform: scale(1.01,1.01)
+}
+
 
 

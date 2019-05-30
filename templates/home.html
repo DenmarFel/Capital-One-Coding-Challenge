@@ -2,7 +2,7 @@
 {% block content %}
 
 <div id="homeText">
-    <div id="searchCard">
+    <div id="searchCard" class="card">
     <h1>Explore America's Wonders!</h1>
         <div id="stateLookup">
             <select onChange="window.location.href=this.value">
@@ -67,10 +67,12 @@
         </div>
 
         {% from "_formhelpers.html" import render_field %}
-        <form method=post id="searchForm">
-            <button type=submit>Explore</button>
-            {{ render_field(form.search, placeholder="Enter Park Here") }}
-        </form>
+        <div id="searchForm">
+            <form method=post font-family= 'Varela Round', sans-serif;>
+                <button type=submit>Explore</button>
+                {{ render_field(form.search, placeholder="Enter Park Here", id="searchStateBar") }}
+            </form>
+        </div>
     </div>
 </div>
 
