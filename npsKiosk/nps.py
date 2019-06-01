@@ -8,11 +8,13 @@ app = Flask(__name__, template_folder='templates')
 @app.route('/', methods=['GET','POST'])
 @app.route('/home', methods=['GET','POST'])
 def home():
+    return 'Hello World'
+    '''
     search = ParkSearchForm(request.form)
     if request.method == 'POST':
         return searchresults(search)
     return render_template('home.html', api_key=api_key, form=search)
-
+    '''
 @app.route('/results/<state>')
 def results(state):
     return render_template('results.html', webApp=webApp, value=state)
