@@ -12,6 +12,7 @@ body {
 
 nav {
     display: inline;
+    position: static;
 }
 
 nav ul {
@@ -114,7 +115,7 @@ a {
 
 .card {
     border-radius: 1em;
-    padding: 2.5%;
+    padding: 20px;
     margin: 1em; 
 }
 
@@ -156,8 +157,17 @@ a {
     text-decoration: none;
 }
 
+#titleCard {
+    background-color: rgba(35, 40, 40, 0.95);
+    color: white;
+    font-weight: bold;
+}
+
 #resultsCard {
     background-color: rgba(35, 40, 40, 0.95);
+    overflow: hidden;
+    min-height: 1px;
+    display: block; 
 }
 
 #resultsCard a {
@@ -165,8 +175,20 @@ a {
 }
 
 #resultsCard img {
-    width: 10em;
-    height: 7em;
+    width: 30%;
+    height: 80%;
+    float: right;
+    border-radius: 1em;
+}
+
+#resultsCardContent {
+    display: inline;
+}
+
+#resultsCardText {
+    float: left;
+    width: 65%
+
 }
 
 #resultsCard:hover {
@@ -174,5 +196,84 @@ a {
     transform: scale(1.01,1.01)
 }
 
+#parkCard {
+    background-color: rgba(35, 40, 40, 0.95);
+    color: white;
+    display: block;
+    overflow: hidden;
+    min-height: 1px;
+}
 
+#parkCardContent {
+    display: block;
+}
 
+#parkContentHeader {
+    overflow: hidden;
+    min-height: 1px;
+    margin-bottom: 2em;
+
+}
+
+#headerText {
+    width: 55%;
+    height: 100%;
+    float: left;
+}
+
+#headerTextLinks {
+    margin-top: 4em;
+}
+
+#headerTextLinks a {
+    background-color: #5D8B7B;
+    margin: 0.1em !important;
+    text-decoration: none;
+    border-radius: 1.5em !important;
+
+}
+
+#headerTextLinks a:hover {
+    background-color: green;
+    transform: scale(1.4,1.4);
+}
+
+#headerImg img {
+    width: 40%;
+    height: 80%;
+    float: right;
+    border-radius: 1em;
+}
+
+#alertCard {
+    background-color: #333333;
+}
+
+#alertCard h3 {
+    text-align: center;
+}
+
+.generalCard {
+    background-color: rgba(35, 40, 40, 0.95);
+    color: white;
+}
+
+.specificCard {
+    background-color: #203734;
+}
+
+#campgroundButtonAttributes {
+    display: inline;
+}
+
+#amenities {
+    display: none;
+}
+
+#accessibility {
+    display: none;
+}
+
+#fees {
+    display: none;
+}

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="generalCard card">
+    {% for park in webApp.parkData(value) %}
+    <h1>News Releases for {{ park['name'] }}</h1>
+    {% endfor %}
+    <button onclick="history.back()">Go Back</button>
+    {% for news in webApp.getNewsData(value) %}
+    <div class="specificCard card">
+        <h4><a href="{{ news['url'] }}">{{ news['title'] }}</a></h4>
+        <img src="{{ news['url'] }}" alt="">
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect
 from npsAPI import * 
 from forms import ParkSearchForm
+
 app = Flask(__name__, template_folder='templates')
 
 #Home Page
@@ -24,6 +25,27 @@ def searchresults(search):
 @app.route('/park/<parkCode>')
 def park(parkCode):
 	return render_template('park.html', webApp=webApp, value=parkCode)
+
+@app.route('/articles/<parkCode>')
+def articles(parkCode):
+	return render_template('articles.html', webApp=webApp, value=parkCode)
+
+@app.route('/campgrounds/<parkCode>')
+def campgrounds(parkCode):
+	return render_template('campgrounds.html', webApp=webApp, value=parkCode)
+
+@app.route('/events/<parkCode>')
+def events(parkCode):
+	return render_template('events.html', webApp=webApp, value=parkCode)
+
+@app.route('/visitorcenters/<parkCode>')
+def visitorcenters(parkCode):
+	return render_template('visitorcenters.html', webApp=webApp, value=parkCode)
+
+@app.route('/newsreleases/<parkCode>')
+def newsreleases(parkCode):
+	return render_template('newsreleases.html', webApp=webApp, value=parkCode)
+
 
 if __name__ == '__main__':
     app.run(debug=True) 

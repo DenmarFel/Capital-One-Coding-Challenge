@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="generalCard card">
+    {% for park in webApp.parkData(value) %}
+    <h1>Campgrounds in {{ park['name'] }}</h1>
+    {% endfor %}
+    <button onclick="history.back()">Go Back</button>
+        {% for campground in webApp.getParkCampgroundData(value) %}
+        <div class="specificCard card">
+            <h2>{{ campground['name'] }}</h2>
+            <p>{{ campground['description'] }}</p>
+            <div id="campgroundButtonAttributes">
+                <button onclick="showamenities()">Amenities</button>
+                <button onclick="showaccessibility()">Accessibility</button>
+                <button onclick="showfees()">Fees</button>
+            </div>
+            <div id="campContent">
+                <div id="amenities">
+                <h4>Amenities</h4>
+                    {% if campground['amenities']['trashrecyclingcollection'] != "" %}
+                        <p>Recycling Collection: {{ campground['amenities']['trashrecyclingcollection'] }}</p>
+                    {% endif %}
+                    {% if campground['amenities']['toilets'] != [] %}
+                        <p>Toilets: {{ campground['amenities']['toilets'][0] }}</p>
+                    {% endif %}
+                    {% if campground['amenities']['internetconnectivity'] != "" %}
+                        <p>Internet Access: {{ campground['amenities']['internetconnectivity'] }}</p>
+                    {% endif %}
+                    {% if campground['amenities']['showers'] != [] %}
+                        <p>Showers: {{ campground['amenities']['showers'][0] }}</p>
+                    {% endif %}
+                    {% if campground['amenities']['cellphonereception'] != "" %}
+                        <p>Cellular Reception: {{ campground['amenities']['cellphonereception'] }}</p>
+                    {% else %}
+                        <p>Cellular Receiption: None</p>
+                    {% endif %}
+                    {% if campground['amenities']['amphitheater'] != "" %}
+                        <p>Amphitheater: {{ campground['amenities']['amphitheater'] }}</p>
+                    {% endif %}
+                    {% if campground['amenities']['dumpstation'] != "" %}
+                        <p>Dumpstation: {{ campground['amenities']['dumpstation'] }}</p>
+                    {% endif %}
+                    {% if campground['amenities']['campstore'] != "" %}
+                        <p>Camp Store: {{ campground['amenities']['campstore'] }}</p>
+                    {% endif %}
+                    {% if campground['amenities']['stafforvolunteerhostonsite'] != "" %}
+                        <p>Host on Site: {{ campground['amenities']['stafforvolunteerhostonsite'] }}</p>
+                    {% endif %}
+                    {% if campground['amenities']['potablewater'] != [] %}
+                        <p>Drinking Water: {{ campground['amenities']['potablewater'][0] }}</p>
+                    {% endif %}
+                    {% if campground['amenities']['iceavailableforsale'] != "" %}
+                        <p>Ice Available for Sale: {{ campground['amenities']['iceavailableforsale'] }}</p>
+                    {% endif %}
+                    {% if campground['amenities']['firewoodforsale'] != "" %}
+                        <p>Fire Wood for Sale: {{ campground['amenities']['firewoodforsale'] }}</p>
+                    {% endif %}
+                    {% if campground['amenities']['ampitheater'] != "" %}
+                        <p>Ampitheater: {{ campground['amenities']['ampitheater'] }}</p>
+                    {% endif %}
+                    {% if campground['amenities']['foodstoragelockers'] != "" %}
+                        <p>Food Storage Lockers: {{ campground['amenities']['foodstoragelockers'] }}</p>
+                    {% endif %}
+                </div>
+                <div id="accessibility">
+                    <h4>Accessibility</h4>
+                    {% if campground['accessibility']['wheelchairaccess'] != "" %}
+                        <p>Wheelchair Access: {{ campground['accessibility']['wheelchairaccess'] }}</p>
+                    {% endif %}
+                    {% if campground['accessibility']['internetinfo'] != "" %}
+                        <p>Internet Info: {{ campground['accessibility']['internetinfo'] }}</p>
+                    {% endif %}
+                    {% if campground['accessibility']['rvinfo'] != "" %}
+                        <p>Trailer and RV Info: {{ campground['accessibility']['rvinfo'] }}</p>
+                    {% endif %}
+                    {% if campground['accessibility']['trailerallowed'] != "" %}
+                        <p>Trailer Allowed: {{ campground['accessibility']['trailerallowed'] }}</p>
+                    {% endif %}
+                    {% if campground['accessibility']['trailermaxlength'] != "" %}
+                        <p>Trailer Max Length: {{ campground['accessibility']['trailermaxlength'] }}</p>
+                    {% endif %}
+                    {% if campground['accessibility']['rvallowed'] != "" %}
+                        <p>RV Allowed: {{ campground['accessibility']['rvallowed'] }}</p>
+                    {% endif %}
+                    {% if campground['accessibility']['rvmaxlength'] != "" %}
+                        <p>RV Max Length: {{ campground['accessibility']['rvmaxlength'] }}</p>
+                    {% endif %}
+                    {% if campground['accessibility']['cellphoneinfo'] != "" %}
+                        <p>Cellphone Info: {{ campground['accessibility']['cellphoneinfo'] }}</p>
+                    {% endif %}
+                    {% if campground['accessibility']['firestovepolicy'] != "" %}
+                        <p>Fire Stove Policy: {{ campground['accessibility']['firestovepolicy'] }}</p>
+                    {% endif %}
+                    {% if campground['accessibility']['additionalinfo'] != "" %}
+                        <p>Additional Info: {{ campground['accessibility']['additionalinfo'] }}</p>
+                    {% endif %}
+                    {% if campground['accessibility']['adainfo'] != "" %}
+                        <p>ADA Info: {{ campground['accessibility']['adainfo'] }}</p>
+                    {% endif %}
+                    {% if campground['accessibility']['accessroads'] != [] %}
+                        <p>Access Roads: {{ campground['accessibility']['accessroads'][0] }}</p>
+                    {% endif %}
+                    {% if campground['accessibility']['classifications'] != [] %}
+                        <p>Classifications: {{ campground['accessibility']['classifications'][0] }}</p>
+                    {% endif %}
+                </div>
+                {% if "fees" in campground.keys() %}
+                <div id="fees">
+                    <h4>Fees</h4>
+                    {% for fee in campground['fees'] %}
+                    <h5>{{ fee['title'] }}</h5>
+                    <p>{{ fee['cost'] }}</p>
+                    <p>{{ fee['description'] }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+</div>
+{% endblock %}

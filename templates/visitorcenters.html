@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="generalCard card">
+    {% for park in webApp.parkData(value) %}
+    <h1>Visitor Centers in {{ park['name'] }}</h1>
+    {% endfor %}
+    <button onclick="history.back()">Go Back</button>
+        {% for center in webApp.getVisitorcentersData(value) %}
+        <div class="specificCard card">
+            <h4>{{ center['name'] }}</h4>
+            <p>{{ center['description'] }}</p>
+        </div>
+        {% endfor %}
+</div>
+{% endblock %}
