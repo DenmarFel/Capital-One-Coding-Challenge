@@ -3,10 +3,16 @@
 <div class="generalCard card">
     <h1>Events Happening at {{ parkname }}</h1>
     <p>Total: {{ events|length }}</p>
-    <button onclick="history.back()">Back to {{ parkname }} Page</button>
+    <div id="backLink">
+    <a href="javascript:history.back()" class="card">Back to {{ parkname }} Page</a>
+    </div> 
     {% for event in events %}
-    <div class="specificCard card">
+    <div class="specificCard2 card">
         <h3>{{ event['title'] }}</h3>
+        <p class="type"><i>{{ event['category'] }}</i></p>
+        <p>Start Time: {{ event['times']['timestart'] }}</p>
+        <p>End Time: {{ event['times']['timeend'] }}</p>
+        <p>Next Session: {{ event['dates'][0] }}</p>
         <p>{{ event['description'].lstrip("<p>").rstrip("</p>") }}</p>
     </div>
     {% endfor %}

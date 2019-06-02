@@ -32,7 +32,6 @@ a {
 
 nav {
     display: inline;
-    position: fixed;
 }
 
 nav ul {
@@ -167,7 +166,7 @@ nav ul li a:hover {
 }
 
 #resultsCard:hover {
-    background-color: background-color: #285238;
+    background-color: #285238;
     transform: scale(1.01,1.01)
 }
 
@@ -226,14 +225,15 @@ nav ul li a:hover {
 #backLink {
     margin-top: 2em;
     margin-bottom: 1em;
+    width: 30%;
 }
 
 #backLink a{
-    background-color: #5D8B7B;
     margin: 0.1em !important;
     padding: 1em;
     text-decoration: none;
     border-radius: 1.5em !important;
+    background-color: #5D8B7B;
 }
 
 #backLink a:hover {
@@ -305,6 +305,14 @@ ul{
 .specificCard:hover {
     background-color: #285238;
     transform: scale(1.01,1.01)
+}
+
+.specificCard2 {
+    background-color: #5D8B7B;
+    margin-top: 3em;
+    overflow: hidden;
+    min-height: 1px;
+    display: block; 
 }
 
 @media (max-width: 1000px){

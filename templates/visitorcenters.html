@@ -3,12 +3,19 @@
 <div class="generalCard card">
     <h1>Visitor Centers in {{ parkname }}</h1>
     <p>Total: {{ visitorcenters|length }}</p>
-    <button onclick="history.back()">Go Back</button>
-        {% for center in visitorcenters %}
-        <div class="specificCard card">
-            <h4>{{ center['name'] }}</h4>
-            <p>{{ center['description'] }}</p>
-        </div>
-        {% endfor %}
+    <p>*Clicking on a visitor center will redirect you to official NPS website for more information about the particular visitor center.</p>
+    <div id="backLink">
+    <a href="javascript:history.back()" class="card">Back to {{ parkname }} Page</a>
+    </div> 
+    {% for center in visitorcenters %}
+    <a href="{{ center['url'] }}">
+    <div class="specificCard card">
+        <h3>{{ center['name'] }}</h4>
+        <p>{{ center['description'] }}</p>
+        <h4>Directions Info</h4>
+        <p>{{ center['directionsInfo'] }}</p>
+    </div>
+    </a>
+    {% endfor %}
 </div>
 {% endblock %}

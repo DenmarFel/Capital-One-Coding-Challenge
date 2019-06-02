@@ -126,7 +126,7 @@ class NPS():
 
     # News
     def getNewsData(self, parkCode) -> list:
-        r = requests.get('https://developer.nps.gov/api/v1/events?parkCode=' + parkCode +
+        r = requests.get('https://developer.nps.gov/api/v1/newsreleases?parkCode=' + parkCode +
         '&api_key=' + self._apiKey)
         data = r.json()
         data = data['data']

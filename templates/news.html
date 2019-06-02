@@ -3,11 +3,17 @@
 <div class="generalCard card">
     <h1>News Releases for {{ parkname }}</h1>
     <p>Total: {{ news|length }}</p>
-    <button onclick="history.back()">Back to {{ parkname }} Page</button>
+    <p>*Please note that the NPS API does not provide full news article information. Clicking on a news article will redirect you to the official NPS website.</p>
+    <div id="backLink">
+    <a href="javascript:history.back()" class="card">Back to {{ parkname }} Page</a>
+    </div> 
     {% for topic in news %}
+    <a href="{{ topic['url'] }}">
     <div class="specificCard card">
-        <h4><a href="{{ topic['url'] }}">{{ topic['title'] }}</a></h4>
+        <h4>{{ topic['title'] }}</h4>
+        <p>{{ topic['abstract'] }}</p>
     </div>
+    </a>
     {% endfor %}
 </div>
 {% endblock %}
