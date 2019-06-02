@@ -87,7 +87,7 @@ class NPS():
 
     def parkData(self, parkCode):
         r = requests.get('https://developer.nps.gov/api/v1/parks?parkCode=' + parkCode +
-        '&fields=images&api_key=' + self._apiKey)
+        '&fields=images%2Ccontacts%2CentranceFees%2CentrancePasses%2CoperatingHours&api_key=' + self._apiKey)
         data = r.json()
         data = data['data']
         return data

@@ -1,43 +1,108 @@
 {% extends "layout.html" %}
 {% block content %}
 <div id="parkCard" class="card">
-    <div id="parkCardContent">
-        <div id="parkContentHeader">
-            <div id="headerText">
-                <h1>{{ park['name'] }}</h1>
-                <p><i>{{ park['designation'] }}</i></p>
-                <p>{{ park['description'] }}</p>
-                <div id="headerTextLinks">
-                <a href="{{ url_for('articles', parkCode = park['parkCode']) }}" class="card">Articles</a>
-                <a href="{{ url_for('campgrounds', parkCode = park['parkCode']) }}" class="card">Campgrounds</a>
-                <a href="{{ url_for('events', parkCode = park['parkCode']) }}" class="card">Events</a>
-                <a href="{{ url_for('news', parkCode = park['parkCode']) }}" class="card">News</a>
-                <a href="{{ url_for('visitorcenters', parkCode = park['parkCode']) }}" class="card">Visitor Centers</a>
-                </div>
-            </div>
-            <div id="headerImg">
-                {% if park['images']|length > 0 %}
-                    <img src="{{ park['images'][0]['url'] }}">
-                {% endif %}
+    <div id="parkHeader">
+        <div id="headerText">
+            <h1>{{ park['name'] }}</h1>
+            <p class="type"><i>{{ park['designation'] }}</i></p>
+            <p>{{ park['description'] }}</p>
+            <div id="headerTextLinks">
+            <a href="{{ url_for('articles', parkCode = park['parkCode']) }}" class="card">Articles</a>
+            <a href="{{ url_for('campgrounds', parkCode = park['parkCode']) }}" class="card">Campgrounds</a>
+            <a href="{{ url_for('events', parkCode = park['parkCode']) }}" class="card">Events</a>
+            <a href="{{ url_for('news', parkCode = park['parkCode']) }}" class="card">News</a>
+            <a href="{{ url_for('visitorcenters', parkCode = park['parkCode']) }}" class="card">Visitor Centers</a>
             </div>
         </div>
+        <div id="headerImg">
+            {% if park['images']|length > 0 %}
+                <img src="{{ park['images'][0]['url'] }}">
+            {% endif %}
+        </div>
+    </div>
 
     {% if alerts|length > 0 %}
     <div id="alertCard" class="card">
         <h3>Alerts In Effect</h3>
+        <ul>
         {% for alert in alerts %}
-            <h4>{{ alert['title'] }}</h4>
-            <p>{{ alert['description'] }}</p>
+            <li>
+                <h4>{{ alert['title'] }}</h4>
+                <p>{{ alert['description'] }}</p>
+            </li>
         {% endfor %}
+        </ul>
     </div>
-    {% endif %}  
+    {% endif %} 
 
-    <h3>Directions</h3>
-    <p>{{ park['directionsInfo']}}</p>
+    <div class="attribute">
+        <div class="leftAttribute">
+            <h3>Contact Information</h3>
+            {% if park['contacts']['phoneNumbers']|length > 0 %}
+                {% for contact in park['contacts']['phoneNumbers'] %}
+                <p>Phone Number: {{ contact['phoneNumber']}}</p>
+                <p><i>Type: {{ contact['type'] }}</i></p>
+                {% endfor %}
+            {% endif %}
+            <p>Email: {{ park['contacts']['emailAddresses'][0]['emailAddress']}}</p>
+        </div>
+        <div class="rightAttribute">
+            <h3>Directions</h3>
+            <p>{{ park['directionsInfo']}}</p>
+            <h3>Weather Conditions</h3>
+            <p>{{ park['weatherInfo'] }}</p>
+        </div>
+    </div>
 
-    <h3>Weather Conditions</h3>
-    <p>{{ park['weatherInfo'] }}</p>
+    <div id="hoursTitle" class="attribute">
+            <h3>Operating Hours</h3>
+            {% if park['operatingHours']|length > 0 %}
+                {% for type in park['operatingHours']%}
+                        <div id="hours" class="leftAttribute">
+                        <h4>{{ type['name'] }}</h4>
+                        <ul>
+                            <li>Monday: {{ type['standardHours']['monday'] }}</li>
+                            <li>Tuesday: {{ type['standardHours']['tuesday'] }}</li>
+                            <li>Wednesday: {{ type['standardHours']['wednesday'] }}</li>
+                            <li>Thursday: {{ type['standardHours']['thursday'] }}</li>
+                            <li>Friday: {{ type['standardHours']['friday'] }}</li>
+                            <li>Saturday: {{ type['standardHours']['saturday'] }}</li>
+                            <li>Sunday: {{ type['standardHours']['sunday'] }}</li>
+                        </ul>
+                        </div> 
+                {% endfor %}  
+            {% endif %}
+    </div>  
+
+    {% if park['entranceFees']|length > 0%}
+    <div class="attribute">
+        <h3>Entrance Fees</h3>
+        <ul>
+            {% for fee in park['entranceFees'] %}
+            <li>
+                <h4>{{ fee['title']}}</h4>
+                <p>{{ fee['description']}}</p>
+                <p>${{ fee['cost']}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+    {% if park['entrancePasses']|length > 0%}
+    <div class="attribute">
+        <h3>Entrance Passes</h3>
+        <ul>
+            {% for fee in park['entrancePasses'] %}
+            <li>
+                <h4>{{ fee['title']}}</h4>
+                <p>{{ fee['description']}}</p>
+                <p>${{ fee['cost']}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
     
-    </div>
 </div>
 {% endblock %}

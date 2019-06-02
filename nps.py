@@ -38,7 +38,7 @@ def park(parkCode):
     return render_template('park.html', 
         webApp=webApp, 
         park=park, 
-        alerts=alerts,)
+        alerts=alerts)
 
 # Articles Page
 @app.route('/articles/<parkCode>')

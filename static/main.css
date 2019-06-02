@@ -1,13 +1,33 @@
+h1, h2, h3, h4, h5 {
+    font-family: 'Lato', sans-serif;
+}
+/* Body (layout.html) */
 body {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
     background: url('\\static\\images\\national-park.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    box-sizing: border-box;
+    color: white;
     font-family: 'Varela Round', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Nav Bar (layout.html) */
+
+#logo {
+    float: left;
+    color: white;
+    font-size: 1.5em;
+    margin-left: 0.5em;
+    margin-top: 0.5em;
 }
 
 nav {
@@ -27,27 +47,42 @@ nav ul li {
     float: right;
 }
 
-#logo {
-    float: left;
-    color: white;
-    font-size: 1.5em;
-    margin-left: 0.5em;
-    margin-top: 0.5em;
-}
-
 nav ul li a {
     display: block;
-    color: white;
     text-align: center;
     padding: 1em 1em;
-    text-decoration: none;
 }
 
 nav ul li a:hover {
     background-color: #111;
   }
 
-#stateLookup select {
+.card {
+    border-radius: 1em;
+    padding: 20px;
+    margin: 1em; 
+}
+
+.type {
+    border-radius: 1em;
+    padding: 0.2em;
+    background-color: #B2ADAB;
+    width: max-content;
+}
+
+/* Search Card (home.html) */
+
+#searchCard {
+    background-color: rgba(35, 40, 40, 0.8);
+    width: 60%;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#searchCard select {
     margin-bottom: 2em;
     width: 100%;
     border: none;
@@ -59,30 +94,15 @@ nav ul li a:hover {
     font-family: 'Varela Round', sans-serif !important;
 }
 
-#stateLookup select:focus {
+#searchCard select:focus {
     border-radius: 1em 1em 0em 0em;
 }
 
-#searchCard {
-    width: 60%;
-    background-color: rgba(35, 40, 40, 0.8);
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-#searchCard h1 {
-    margin-bottom: 1em;
-    color: #F6F9E7;
-}
-
-#searchForm {
+#searchCard form {
     width: 100%;
 }
 
-#homeText input[type=text] {
+#searchCard form input[type=text] {
     border: none;
     text-align: center;
     width: 75%;
@@ -93,8 +113,12 @@ nav ul li a:hover {
     margin-bottom: 2em;
     font-family: 'Varela Round', sans-serif !important
 }
+
+#searchCard form dd {
+    margin-left: 0em;
+}
   
-#homeText form button {
+#searchCard form button {
     float: right;
     width: 20%;
     font-size: 1em;
@@ -105,46 +129,24 @@ nav ul li a:hover {
     font-family: 'Varela Round', sans-serif !important
 }
 
-#homeText dd {
-    margin-left: 0em;
-}
-
-a {
-    color: white;
-}
-
-.card {
-    border-radius: 1em;
-    padding: 20px;
-    margin: 1em; 
-}
-
 .leftSideContent {
     width: 20%; 
     float: left;
 }
 
-.leftSideContent a {
-    display: block;
-}
-
 #quickNavCard {
     background-color: rgba(35, 40, 40, 0.95); 
     text-align: center;
+    display: block;
 }
 
-#quickNavCard h2 {
-    color: white;
+#quickNavLinkCard {
+    background-color: rgba(35, 40, 40, 1);
 }
-
-#quickNavCard a:link {
-    color: white
-}
-
 
 #quickNavLinkCard:hover {
     background-color: rgba(32, 55, 52, 1);
-    transform: scale(1.1,1.1)
+    transform: scale(1.1,1.1);
 }
 
 .centerContent {
@@ -152,16 +154,10 @@ a {
     float: left;
 }
 
-.centerContent a {
-    display: block;
-    text-decoration: none;
-}
-
 #titleCard {
     background-color: rgba(35, 40, 40, 0.95);
-    color: white;
-    font-weight: bold;
 }
+
 
 #resultsCard {
     background-color: rgba(35, 40, 40, 0.95);
@@ -170,15 +166,9 @@ a {
     display: block; 
 }
 
-#resultsCard a {
-    color: white
-}
-
-#resultsCard img {
-    width: 30%;
-    height: 80%;
-    float: right;
-    border-radius: 1em;
+#resultsCard:hover {
+    background-color: rgba(32, 55, 52, 1);
+    transform: scale(1.01,1.01)
 }
 
 #resultsCardContent {
@@ -188,12 +178,13 @@ a {
 #resultsCardText {
     float: left;
     width: 65%
-
 }
 
-#resultsCard:hover {
-    background-color: rgba(32, 55, 52, 1);
-    transform: scale(1.01,1.01)
+#resultsCard img {
+    width: 30%;
+    height: 80%;
+    float: right;
+    border-radius: 1em;
 }
 
 #parkCard {
@@ -204,15 +195,10 @@ a {
     min-height: 1px;
 }
 
-#parkCardContent {
-    display: block;
-}
-
-#parkContentHeader {
+#parkHeader {
     overflow: hidden;
     min-height: 1px;
     margin-bottom: 2em;
-
 }
 
 #headerText {
@@ -223,6 +209,7 @@ a {
 
 #headerTextLinks {
     margin-top: 4em;
+    margin-bottom: 4em;
 }
 
 #headerTextLinks a {
@@ -233,8 +220,7 @@ a {
 }
 
 #headerTextLinks a:hover {
-    background-color: green;
-    transform: scale(1.4,1.4);
+    background-color: #285238;
 }
 
 #headerImg img {
@@ -245,16 +231,50 @@ a {
 }
 
 #alertCard {
-    background-color: #333333;
+    background-color: #197278;
+}
+
+ul{
+    padding-left: 1em;
 }
 
 #alertCard h3 {
     text-align: center;
 }
 
+.attribute {
+    margin: auto;
+    width: 95%;
+    border-bottom: 1px solid gray;
+    overflow: hidden;
+    min-height: 1px;
+}
+
+.leftAttribute {
+    float: left;
+    width: 30%;
+    height: 100%;
+}
+
+#hours {
+    float: left;
+    width: 19% !important;
+    height: 100%;
+}
+
+#hoursTitle h3 {
+    text-align: center;
+}
+
+.rightAttribute {
+    float: left;
+    width: 70%;
+    height: 100%;
+}
+
+
 .generalCard {
     background-color: rgba(35, 40, 40, 0.95);
-    color: white;
 }
 
 .specificCard {
@@ -275,4 +295,12 @@ a {
 
 #fees {
     display: none;
+}
+
+@media (max-width: 1000px){
+    #headerTextLinks a{
+        display: block;
+        width: 50%;
+        text-align: center;
+    }
 }
