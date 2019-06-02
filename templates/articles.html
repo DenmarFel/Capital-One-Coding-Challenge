@@ -1,16 +1,19 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="generalCard card">
-    <h1>Articles for {{ parkname }}</h1>
+    <h1>Articles for {{ parkname }} </h1>
     <p>Total: {{ articles|length }}</p>
-    <button onclick="history.back()">Back to {{ parkname }} Page</button>
+    <p>*Please note that the NPS API does not provide full article information. Clicking on an article will redirect you to the official NPS website.</p>
+    <div id="backLink">
+    <a href="javascript:history.back()" class="card">Back to {{ parkname }} Page</a>
+    </div> 
     {% for article in articles %}
-    <a href="{{ article['url'] }}">
     <div class="specificCard card">
+        <a href="{{ article['url'] }}">
         <h4>{{ article['title'] }}</h4>
         <p>{{ article['listingdescription'] }}</p>
+        </a>
     </div>
-    </a>
     {% endfor %}
 </div>
 {% endblock %}

@@ -32,7 +32,7 @@ a {
 
 nav {
     display: inline;
-    position: static;
+    position: fixed;
 }
 
 nav ul {
@@ -167,7 +167,7 @@ nav ul li a:hover {
 }
 
 #resultsCard:hover {
-    background-color: rgba(32, 55, 52, 1);
+    background-color: background-color: #285238;
     transform: scale(1.01,1.01)
 }
 
@@ -223,6 +223,23 @@ nav ul li a:hover {
     background-color: #285238;
 }
 
+#backLink {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+#backLink a{
+    background-color: #5D8B7B;
+    margin: 0.1em !important;
+    padding: 1em;
+    text-decoration: none;
+    border-radius: 1.5em !important;
+}
+
+#backLink a:hover {
+    background-color: #285238;
+}
+
 #headerImg img {
     width: 40%;
     height: 80%;
@@ -258,7 +275,7 @@ ul{
 
 #hours {
     float: left;
-    width: 19% !important;
+    width: 16.6% !important;
     height: 100%;
 }
 
@@ -278,23 +295,16 @@ ul{
 }
 
 .specificCard {
-    background-color: #203734;
+    background-color: #5D8B7B;
+    margin-top: 3em;
+    overflow: hidden;
+    min-height: 1px;
+    display: block; 
 }
 
-#campgroundButtonAttributes {
-    display: inline;
-}
-
-#amenities {
-    display: none;
-}
-
-#accessibility {
-    display: none;
-}
-
-#fees {
-    display: none;
+.specificCard:hover {
+    background-color: #285238;
+    transform: scale(1.01,1.01)
 }
 
 @media (max-width: 1000px){
