@@ -69,6 +69,16 @@ nav ul li a:hover {
     width: max-content;
 }
 
+#about{
+    width: 60%;
+    margin: auto !important;
+    margin-top: 2em !important;
+}
+
+#aboutText {
+    margin-top: 2em !important;
+}
+
 /* Search Card (home.html) */
 
 #searchCard {

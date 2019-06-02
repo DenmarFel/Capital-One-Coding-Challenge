@@ -15,6 +15,11 @@ def home():
         api_key=api_key, 
         form=search)
 
+# About Page
+@app.route('/about')
+def about():
+        return render_template('about.html')
+
 # Results Page
 @app.route('/results/<search>')
 def results(search):
