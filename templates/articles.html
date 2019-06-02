@@ -3,7 +3,7 @@
 <div class="generalCard card">
     <h1>Articles for {{ parkname }}</h1>
     <p>Total: {{ articles|length }}</p>
-    <button onclick="history.back()">Back to {{ parkname }} Page}</button>
+    <button onclick="history.back()">Back to {{ parkname }} Page</button>
     {% for article in articles %}
     <a href="{{ article['url'] }}">
     <div class="specificCard card">
