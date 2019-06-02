@@ -1,14 +1,16 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="generalCard card">
-    {% for park in webApp.parkData(value) %}
-    <h1>Articles for {{ park['name'] }}</h1>
-    {% endfor %}
-    <button onclick="history.back()">Go Back</button>
-    {% for article in webApp.getArticleData(value) %}
+    <h1>Articles for {{ parkname }}</h1>
+    <p>Total: {{ articles|length }}</p>
+    <button onclick="history.back()">Back to {{ parkname }} Page}</button>
+    {% for article in articles %}
+    <a href="{{ article['url'] }}">
     <div class="specificCard card">
-        <h4><a href="{{ article['url']}}">{{ article['title'] }}</a></h4>
+        <h4>{{ article['title'] }}</h4>
+        <p>{{ article['listingdescription'] }}</p>
     </div>
+    </a>
     {% endfor %}
 </div>
 {% endblock %}

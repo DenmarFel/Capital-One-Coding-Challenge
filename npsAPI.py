@@ -100,28 +100,25 @@ class NPS():
         data = data['data']
         return data
 
-    # Campgrounds------------------------------------
-    def getParkCampgroundData(self, parkCode) -> list:
-        r = requests.get('https://developer.nps.gov/api/v1/campgrounds?parkCode=' + parkCode +
-        '&fields=fees&api_key=' + self._apiKey)
-        data = r.json()
-        data = data['data']
-        return data
-    
-    #------------------------------------------------
-
-    # Visitor Centers
-    def getVisitorcentersData(self, parkCode) -> list:
-        r = requests.get('https://developer.nps.gov/api/v1/visitorcenters?parkCode=' + parkCode +
+    # Articles 
+    def getArticleData(self, parkCode) -> list:
+        r = requests.get('https://developer.nps.gov/api/v1/articles?parkCode=' + parkCode +
         '&api_key=' + self._apiKey)
         data = r.json()
         data = data['data']
         return data
 
-        
-    # Articles 
-    def getArticleData(self, parkCode) -> list:
-        r = requests.get('https://developer.nps.gov/api/v1/articles?parkCode=' + parkCode +
+    # Campgrounds
+    def getCampgroundData(self, parkCode) -> list:
+        r = requests.get('https://developer.nps.gov/api/v1/campgrounds?parkCode=' + parkCode +
+        '&fields=fees&api_key=' + self._apiKey)
+        data = r.json()
+        data = data['data']
+        return data
+
+    # Events
+    def getEventsData(self, parkCode) -> list:
+        r = requests.get('https://developer.nps.gov/api/v1/events?parkCode=' + parkCode +
         '&api_key=' + self._apiKey)
         data = r.json()
         data = data['data']
@@ -135,9 +132,9 @@ class NPS():
         data = data['data']
         return data
 
-    # Events
-    def getEventsData(self, parkCode) -> list:
-        r = requests.get('https://developer.nps.gov/api/v1/events?parkCode=' + parkCode +
+    # Visitor Centers
+    def getVisitorcentersData(self, parkCode) -> list:
+        r = requests.get('https://developer.nps.gov/api/v1/visitorcenters?parkCode=' + parkCode +
         '&api_key=' + self._apiKey)
         data = r.json()
         data = data['data']

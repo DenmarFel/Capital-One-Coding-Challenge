@@ -1,11 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="generalCard card">
-    {% for park in webApp.parkData(value) %}
-    <h1>Campgrounds in {{ park['name'] }}</h1>
-    {% endfor %}
-    <button onclick="history.back()">Go Back</button>
-        {% for campground in webApp.getParkCampgroundData(value) %}
+    <h1>Campgrounds in {{ parkname }}</h1>
+    <p>Total: {{ campgrounds|length }}</p>
+    <button onclick="history.back()">Back to {{ parkname }} Page</button>
+        {% for campground in campgrounds %}
         <div class="specificCard card">
             <h2>{{ campground['name'] }}</h2>
             <p>{{ campground['description'] }}</p>

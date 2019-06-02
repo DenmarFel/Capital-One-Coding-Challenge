@@ -2,19 +2,20 @@
 {% block leftSideContent %}
 <div id="quickNavCard" class="card">
     <h2>Quick Navigation</h2>
-        {% for park in webApp.parksByState(value) %}
+        {% for park in parks %}
         <div id ="quickNavLinkCard" class="card">
         <a href="{{ url_for('park', parkCode=park['parkCode'])}}">{{ park['name'] }}</a>
         </div>
         {% endfor %}
 </div>
 {% endblock leftSideContent %}
+
 {% block centerContent %}
 <div id="titleCard" class="card">
-    <h2>Parks in {{ webApp.getState()[value] }}</h2>
-    <p>Total Results: {{ webApp.parksByState(value)|length }}</p>
+    <h2>Parks for {{ term }}</h2>
+    <p>Total Results: {{ parks|length }}</p>
 </div>
-{% for park in webApp.parksByState(value) %}
+{% for park in parks %}
 <a href="{{ url_for('park', parkCode=park['parkCode'])}}">
     <div id="resultsCard" class="card">
         <div id="resultsCardContent">

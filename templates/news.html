@@ -1,13 +1,12 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="generalCard card">
-    <h1>Events Happening at {{ parkname }}</h1>
-    <p>Total: {{ events|length }}</p>
+    <h1>News Releases for {{ parkname }}</h1>
+    <p>Total: {{ news|length }}</p>
     <button onclick="history.back()">Back to {{ parkname }} Page</button>
-    {% for event in events %}
+    {% for topic in news %}
     <div class="specificCard card">
-        <h3>{{ event['title'] }}</h3>
-        <p>{{ event['description'].lstrip("<p>").rstrip("</p>") }}</p>
+        <h4><a href="{{ topic['url'] }}">{{ topic['title'] }}</a></h4>
     </div>
     {% endfor %}
 </div>

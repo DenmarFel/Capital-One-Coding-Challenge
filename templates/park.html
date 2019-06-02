@@ -3,27 +3,16 @@
 <div id="parkCard" class="card">
     <div id="parkCardContent">
         <div id="parkContentHeader">
-            {% for park in webApp.parkData(value) %}
             <div id="headerText">
                 <h1>{{ park['name'] }}</h1>
                 <p><i>{{ park['designation'] }}</i></p>
                 <p>{{ park['description'] }}</p>
                 <div id="headerTextLinks">
-                    {% if webApp.getParkCampgroundData(value)|length > 0 %}
-                        <a href="{{ url_for('campgrounds', parkCode=value)}}" class="card">Campgrounds</a>
-                    {% endif %}
-                    {% if webApp.getVisitorcentersData(value)|length > 0 %}
-                        <a href="{{ url_for('visitorcenters', parkCode=value)}}" class="card">Visitor Centers</a>
-                    {% endif %}
-                    {% if webApp.getEventsData(value)|length > 0 %}
-                        <a href="{{ url_for('events', parkCode=value)}}" class="card">Events</a>
-                    {% endif %}
-                    {% if webApp.getArticleData(value)|length > 0 %}
-                        <a href="{{ url_for('articles', parkCode=value)}}" class="card">Articles</a>
-                    {% endif %}
-                    {% if webApp.getNewsData(value)|length > 0 %}
-                        <a href="{{ url_for('newsreleases', parkCode=value)}}" class="card">News Releases</a>
-                    {% endif %}
+                <a href="{{ url_for('articles', parkCode = park['parkCode']) }}" class="card">Articles</a>
+                <a href="{{ url_for('campgrounds', parkCode = park['parkCode']) }}" class="card">Campgrounds</a>
+                <a href="{{ url_for('events', parkCode = park['parkCode']) }}" class="card">Events</a>
+                <a href="{{ url_for('news', parkCode = park['parkCode']) }}" class="card">News</a>
+                <a href="{{ url_for('visitorcenters', parkCode = park['parkCode']) }}" class="card">Visitor Centers</a>
                 </div>
             </div>
             <div id="headerImg">
@@ -31,64 +20,24 @@
                     <img src="{{ park['images'][0]['url'] }}">
                 {% endif %}
             </div>
-            {% endfor %}
         </div>
 
-    {% if webApp.getParkAlerts(value)|length > 0 %}
+    {% if alerts|length > 0 %}
     <div id="alertCard" class="card">
         <h3>Alerts In Effect</h3>
-        {% for alert in webApp.getParkAlerts(value) %}
+        {% for alert in alerts %}
             <h4>{{ alert['title'] }}</h4>
             <p>{{ alert['description'] }}</p>
         {% endfor %}
-        {% endif %}
-    </div>  
-
+    </div>
+    {% endif %}  
 
     <h3>Directions</h3>
-    <p>{{ webApp.parkData(value)[0]['directionsInfo']}}</p>
-
+    <p>{{ park['directionsInfo']}}</p>
 
     <h3>Weather Conditions</h3>
-    <p>{{ webApp.parkData(value)[0]['weatherInfo'] }}</p>
-
-    <!--
-    {% if webApp.getParkCampgroundData(value)|length > 0 %}
-    <h3>Campgrounds</h3>
-    {% for campground in webApp.getParkCampgroundData(value) %}
-        <p>{{ campground['name'] }}</p>
-        <p>{{ campground['description'] }}</p>
-    {% endfor %}
-    {% endif %}
-
-
-    {% if webApp.getVisitorcentersData(value)|length > 0 %}
-    <h3>Visitor Centers</h3>
-    {% for center in webApp.getVisitorcentersData(value) %}
-        <h4>{{ center['name'] }}</h4>
-        <p>{{ center['description'] }}</p>
-    {% endfor %}
-    {% endif %}
-
-
-    {% if webApp.getArticleData(value)|length > 0 %}
-    <h3>Articles</h3>
-    {% for article in webApp.getArticleData(value) %}
-        <h4><a href="{{ article['url']}}">{{ article['title'] }}</a></h4>
-    {% endfor %}
-    {% endif %}
-
-
-    <h3>Events</h3>
-
-    {% if webApp.getNewsData(value)|length > 0 %}
-    <h3>News Releases</h3>
-    {% for news in webApp.getNewsData(value) %}
-        <h4><a href="{{ news['url'] }}">{{ news['title'] }}</a></h4>
-        <img src="{{ news['url'] }}" alt="">
-    {% endfor %}
-    {% endif %}
-    -->
+    <p>{{ park['weatherInfo'] }}</p>
+    
     </div>
 </div>
 {% endblock %}
