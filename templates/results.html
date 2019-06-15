@@ -3,9 +3,11 @@
 <div id="quickNavCard" class="card">
     <h2>Quick Navigation</h2>
         {% for park in parks %}
+        <a href="{{ url_for('park', parkCode=park['parkCode'])}}">
         <div id ="quickNavLinkCard" class="card">
-        <a href="{{ url_for('park', parkCode=park['parkCode'])}}">{{ park['name'] }}</a>
+        {{ park['name'] }}
         </div>
+        </a>
         {% endfor %}
 </div>
 {% endblock leftSideContent %}

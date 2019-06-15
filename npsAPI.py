@@ -142,16 +142,8 @@ class NPS():
 
 webApp = NPS(api_key)
 
-'''
-for park in webApp.getParkCampgroundData('yose'):
-    print(park['name'])
-
-print(webApp.ifCampgroundNotZero('yose'))
-'''
-'''
-for center in webApp.getVisitorcentersData('zion'):
-    print(center['name'])
-'''
-'''
-print(webApp.parksByState('ca')[-1]['images'][0]['url'])
-'''
+def phoneNumberFormat(number: str):
+    if len(number) == 10:
+        result = '(' + number[0:3] + ')' + number[3:6] + '-' + number[6:]
+        return result
+        
