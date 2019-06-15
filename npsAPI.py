@@ -141,9 +141,4 @@ class NPS():
         return data
 
 webApp = NPS(api_key)
-
-def phoneNumberFormat(number: str):
-    if len(number) == 10:
-        result = '(' + number[0:3] + ')' + number[3:6] + '-' + number[6:]
-        return result
         

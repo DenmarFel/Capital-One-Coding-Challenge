@@ -21,6 +21,7 @@
     </ul>
 </nav>
 
+<div id="rest">
 
 {% block content %}{% endblock %}
 
@@ -30,6 +31,8 @@
 
 <div class="centerContent">
     {% block centerContent %}{% endblock %}
+</div>
+
 </div>
 
 <script src="{{url_for('static', filename='app.js')}}"></script>

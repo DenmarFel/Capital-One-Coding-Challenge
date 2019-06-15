@@ -40,12 +40,12 @@
             <h3>Contact Information</h3>
             {% if park['contacts']['phoneNumbers']|length > 0 %}
                 {% for contact in park['contacts']['phoneNumbers'] %}
-                {% if contact['phoneNumber']|length == 10 %}
-                <p>Phone Number: {{'(' + contact['phoneNumber'][0:3] + ') ' + contact['phoneNumber'][3:6] + '-' + contact['phoneNumber'][6:] }}</p>
-                {% else %}
-                <p>Phone Number: {{ contact['phoneNumber']}}</p>
-                {% endif %}
-                <p><i>Type: {{ contact['type'] }}</i></p>
+                    {% if contact['phoneNumber']|length == 10 %}
+                        <p>Phone Number: {{'(' + contact['phoneNumber'][0:3] + ') ' + contact['phoneNumber'][3:6] + '-' + contact['phoneNumber'][6:] }}</p>
+                    {% else %}
+                        <p>Phone Number: {{ contact['phoneNumber'] }}</p>
+                    {% endif %}
+                    <p><i>Type: {{ contact['type'] }}</i></p>
                 {% endfor %}
             {% endif %}
             <p>Email: {{ park['contacts']['emailAddresses'][0]['emailAddress']}}</p>

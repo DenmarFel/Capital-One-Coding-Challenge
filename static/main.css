@@ -1,6 +1,15 @@
 h1, h2, h3, h4, h5 {
     font-family: 'Lato', sans-serif;
 }
+
+html, body{
+    height: 100%;
+}
+
+#rest {
+    margin-top: 4em;
+}
+
 /* Body (layout.html) */
 body {
     background: url('\\static\\images\\national-park.jpg') no-repeat center center fixed; 
@@ -31,7 +40,10 @@ a {
 }
 
 nav {
-    display: inline;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
 }
 
 nav ul {
@@ -78,6 +90,8 @@ nav ul li a:hover {
 #aboutText {
     margin-top: 2em !important;
 }
+
+/* Footer */
 
 /* Search Card (home.html) */
 
