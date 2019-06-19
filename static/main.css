@@ -130,6 +130,8 @@ footer ul li{
 footer img {
     height: 0.9em;
     width: 0.9em;
+    position: relative;
+    top: 0.08em;
 }
 
 #social-media {
@@ -157,6 +159,10 @@ footer img {
     top: .4em;
     height: 1.5em;
     width: 1.5em;
+}
+
+#general a {
+    color: #457dd1 ;
 }
 
 
@@ -276,6 +282,7 @@ footer img {
     height: 80%;
     float: right;
     border-radius: 1em;
+    image-rendering: smooth;
 }
 
 #parkCard {
