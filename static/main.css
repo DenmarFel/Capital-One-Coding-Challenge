@@ -6,10 +6,6 @@ html, body{
     height: 100%;
 }
 
-#rest {
-    margin-top: 4em;
-}
-
 /* Body (layout.html) */
 body {
     background: url('\\static\\images\\national-park.jpg') no-repeat center center fixed; 
@@ -29,14 +25,24 @@ a {
     text-decoration: none;
 }
 
+#container {
+    min-height: 100%;
+    padding-top: 4em;
+}
+
+#main {
+    overflow: auto;
+    margin-bottom: 4em;
+}
+
 /* Nav Bar (layout.html) */
 
-#logo {
+.logo {
     float: left;
-    color: white;
-    font-size: 1.5em;
-    margin-left: 0.5em;
-    margin-top: 0.5em;
+}
+
+.logo a:hover {
+    background-color: #333;
 }
 
 nav {
@@ -44,6 +50,7 @@ nav {
     top: 0;
     width: 100%;
     z-index: 1;
+    font-size: 1.2em;
 }
 
 nav ul {
@@ -65,8 +72,15 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #111;
+    background-color: #648C80;
   }
+
+nav img {
+    padding-left: 0.4em;
+    padding-top: 0.4em;
+    height: 2.5em;
+    width: 2.3em;
+}
 
 .card {
     border-radius: 1em;
@@ -92,6 +106,60 @@ nav ul li a:hover {
 }
 
 /* Footer */
+
+footer {
+    border-radius: 1em 1em 0em 0em;
+    background-color:#333;
+    position: relative;
+    height: 8em;
+    clear: both;
+    display: block;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+footer ul {
+    padding: 0;
+}
+
+footer ul li{
+    display: inline;
+    padding-right: 0.5em;
+}
+
+footer img {
+    height: 0.9em;
+    width: 0.9em;
+}
+
+#social-media {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+#borderline {
+    border: 1px solid gray;
+    position: relative;
+    bottom: 0.3em;
+    width: 90%;
+}
+
+#general {
+    width: 50%;
+    height: 100%;
+    float: right;
+    text-align: right;  
+}
+
+#general img {
+    position: relative;
+    top: .4em;
+    height: 1.5em;
+    width: 1.5em;
+}
+
+
 
 /* Search Card (home.html) */
 
