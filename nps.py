@@ -18,7 +18,7 @@ def home():
 # About Page
 @app.route('/about')
 def about():
-        return render_template('about.html')
+        return render_template('about.html', title='About NPS')
 
 # Results Page
 @app.route('/results/<search>')
@@ -33,7 +33,8 @@ def results(search):
     return render_template('results.html', 
         webApp=webApp, 
         parks=parks, 
-        term=term)
+        term=term,
+        title='Results for ' + term)
 
 # Park Profile Page
 @app.route('/park/<parkCode>')
@@ -43,7 +44,8 @@ def park(parkCode):
     return render_template('park.html', 
         webApp=webApp, 
         park=park, 
-        alerts=alerts)
+        alerts=alerts,
+        title=park['name'])
 
 # Articles Page
 @app.route('/articles/<parkCode>')
@@ -53,7 +55,8 @@ def articles(parkCode):
     return render_template('articles.html', 
         webApp=webApp, 
         articles=articles,
-        parkname=parkname)
+        parkname=parkname,
+        title='Articles: ' + parkname)
 
 # Campgrounds Page
 @app.route('/campgrounds/<parkCode>')
@@ -63,7 +66,8 @@ def campgrounds(parkCode):
     return render_template('campgrounds.html', 
         webApp=webApp,
         campgrounds=campgrounds,
-        parkname=parkname)
+        parkname=parkname,
+        title='Campgrounds: ' + parkname)
 
 # Events Page
 @app.route('/events/<parkCode>')
@@ -73,7 +77,8 @@ def events(parkCode):
     return render_template('events.html', 
         webApp=webApp, 
         events=events,
-        parkname=parkname)
+        parkname=parkname,
+        title='Events: ' + parkname)
 
 # News Page
 @app.route('/news/<parkCode>')
@@ -83,7 +88,8 @@ def news(parkCode):
     return render_template('news.html', 
         webApp=webApp, 
         news=news,
-        parkname=parkname)
+        parkname=parkname,
+        title='News: ' + parkname)
 
 # Visitor Centers Page
 @app.route('/visitorcenters/<parkCode>')
@@ -93,7 +99,8 @@ def visitorcenters(parkCode):
     return render_template('visitorcenters.html', 
         webApp=webApp, 
         visitorcenters=visitorcenters,
-        parkname=parkname)
+        parkname=parkname,
+        title='Visitor Centers: ' + parkname)
 
 # Runs Function
 if __name__ == '__main__':
