@@ -165,8 +165,6 @@ footer img {
     color: #457dd1 ;
 }
 
-
-
 /* Search Card (home.html) */
 
 #searchCard {
@@ -419,4 +417,69 @@ ul{
         width: 50%;
         text-align: center;
     }
+}
+
+#articles {
+    overflow: auto;
+    width: 100%;
+    padding: 1em;
+}
+
+#articleCard {
+    width: 25em;
+    float: left;
+    height: 25em;
+    padding: 0em !important;
+    background-color:#5D8B7B;
+    position: relative;
+}
+
+#articleCard h3 {
+    margin: .5em 0em 0em .5em;
+
+}
+
+#articleImg {
+    width: 25em;
+    height: 20em;
+}
+
+#articleImg img{
+    width: 100%;
+    height: 100%;
+    border-radius: 1em 1em 0em 0em;
+}
+
+#articleImgNotFound img{
+    width: 25em;
+    height: 20em;
+    border-radius: 1em 1em 0em 0em;
+}
+
+#articleTitle {
+    height: 5em;
+    padding-left: 0.5em;
+    margin-top: -5em;
+}
+
+#articleDesOverlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #285238;
+    border-radius: 1em;
+}
+
+#articleDesOverlay p {
+    margin: 1em;
+}
+
+#articleCard:hover #articleDesOverlay{
+    opacity: .95;
 }

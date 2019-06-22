@@ -29,12 +29,12 @@ def results(search):
     else:
         search=search.data['search']
         parks = webApp.parksBySearch(search)
-        term = search
+        term = '\'' + search + '\''
     return render_template('results.html', 
         webApp=webApp, 
         parks=parks, 
         term=term,
-        title='Results for ' + term)
+        title='Results for ' + '\'' + term + '\'')
 
 # Park Profile Page
 @app.route('/park/<parkCode>')

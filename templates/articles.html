@@ -7,13 +7,26 @@
     <div id="backLink">
     <a href="javascript:history.back()" class="card">Back to {{ parkname }} Page</a>
     </div> 
-    {% for article in articles %}
-    <div class="specificCard card">
+    <div id="articles">
+        {% for article in articles %}
         <a href="{{ article['url'] }}">
-        <h4>{{ article['title'] }}</h4>
-        <p>{{ article['listingdescription'] }}</p>
+        <div id="articleCard" class="card">
+            {% if article['listingimage']['url'] %}
+                <div id="articleImg">
+                    <img src="{{ article['listingimage']['url'] }}">
+                </div>
+            {% else %}
+                <div id="articleImgNotFound">
+                    <img src="/static/images/NPSLogo.png">
+                </div>
+            {% endif %}
+            <h3>{{ article['title'] }}</h3>
+            <div id="articleDesOverlay">
+                <p>{{ article['listingdescription'] }}</p>
+            </div>
+        </div>
         </a>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}
