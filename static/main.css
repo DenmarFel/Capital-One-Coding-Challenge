@@ -304,14 +304,14 @@ footer img {
 
 #headerTextLinks {
     margin-top: 4em;
-    margin-bottom: 4em;
+
 }
 
 #headerTextLinks a {
     background-color: #5D8B7B;
+    border-radius: 1.5em;
     margin: 0.1em !important;
-    text-decoration: none;
-    border-radius: 1.5em !important;
+    float: left;
 }
 
 #headerTextLinks a:hover {
@@ -411,13 +411,7 @@ ul{
     display: block; 
 }
 
-@media (max-width: 1000px){
-    #headerTextLinks a{
-        display: block;
-        width: 50%;
-        text-align: center;
-    }
-}
+/* Article Page */
 
 #articles {
     overflow: auto;
@@ -436,7 +430,6 @@ ul{
 
 #articleCard h3 {
     margin: .5em 0em 0em .5em;
-
 }
 
 #articleImg {
