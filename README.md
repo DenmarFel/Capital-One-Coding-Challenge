@@ -7,6 +7,7 @@ This web application is a submission for the semifinalist round of the August 20
 
 View the MindSumo challenge criteria [here](https://www.mindsumo.com/contests/national-park-api?utm_campaign=solution_received_notification&utm_source=mindsumo&utm_medium=email)
 ## Demo
+![](/static/demo/Demo.gif)
 
 ## Built With  
 - HTML/CSS
