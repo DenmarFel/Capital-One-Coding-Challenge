@@ -34,3 +34,4 @@ $ flask run
 > $env:FLASK_APP = "hello"
 > flask run
 ```
+In your browser enter: localhost:5000
