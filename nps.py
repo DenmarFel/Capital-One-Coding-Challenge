@@ -69,6 +69,19 @@ def campgrounds(parkCode):
         parkname=parkname,
         title='Campgrounds: ' + parkname)
 
+# Education Page
+@app.route('/education/<parkCode>')
+def education(parkCode):
+	lessonPlans = webApp.getLessonData(parkCode)
+	importantPeople = webApp.getPeopleData(parkCode)
+	parkname = webApp.parkData(parkCode)[0]['name']
+	return render_template('education.html',
+		webApp=webApp,
+		lessonPlans=lessonPlans,
+		importantPeople=importantPeople,
+		parkname=parkname,
+		title='Education: ' + parkname)
+
 # Events Page
 @app.route('/events/<parkCode>')
 def events(parkCode):

@@ -10,18 +10,18 @@
     <div id="articles">
         {% for article in articles %}
         <a href="{{ article['url'] }}">
-        <div id="articleCard" class="card">
+        <div class="interactiveCard card">
             {% if article['listingimage']['url'] %}
-                <div id="articleImg">
+                <div class="interactiveImg">
                     <img src="{{ article['listingimage']['url'] }}">
                 </div>
             {% else %}
-                <div id="articleImgNotFound">
+                <div class="interactiveImgNotFound">
                     <img src="/static/images/NPSLogo.png">
                 </div>
             {% endif %}
             <h3>{{ article['title'] }}</h3>
-            <div id="articleDesOverlay">
+            <div class="interactiveDesOverlay">
                 <p>{{ article['listingdescription'] }}</p>
             </div>
         </div>

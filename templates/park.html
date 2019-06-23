@@ -9,6 +9,7 @@
             <div id="headerTextLinks">
             <a href="{{ url_for('articles', parkCode = park['parkCode']) }}" class="card">Articles</a>
             <a href="{{ url_for('campgrounds', parkCode = park['parkCode']) }}" class="card">Campgrounds</a>
+            <a href="{{ url_for('education', parkCode = park['parkCode']) }}" class="card">Education</a>
             <a href="{{ url_for('events', parkCode = park['parkCode']) }}" class="card">Events</a>
             <a href="{{ url_for('news', parkCode = park['parkCode']) }}" class="card">News</a>
             <a href="{{ url_for('visitorcenters', parkCode = park['parkCode']) }}" class="card">Visitor Centers</a>

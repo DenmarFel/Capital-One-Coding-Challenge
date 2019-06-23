@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="generalCard card">
+    <h1>Learning More about {{ parkname }}</h1>
+    <div id="backLink">
+    <a href="javascript:history.back()" class="card">Back to {{ parkname }} Page</a>
+    </div> 
+
+    <div class="attribute">
+    <h2>Lesson Plans</h2>
+        {% for lesson in lessonPlans %}
+        <a href="{{ lesson['url'] }}">
+        <div class="specificCard card">
+            <h3>{{ lesson['title'] }}</h3>
+            <p><strong>Subject:</strong> {{ lesson['subject'] }} </p>
+            <p><strong>Duration:</strong> {{ lesson['duration'] }}</p>
+            <p><strong>Objective:</strong> {{ lesson['questionobjective'] }}</p>
+        </div>
+        </a>
+        {% endfor %}
+    </div>
+
+    <div class="attribute">
+    <h2>Prominent Figures</h2>
+        {% for person in importantPeople %}
+        <a href="{{ person['url'] }}">
+            <div class="interactiveCard card">
+                {% if person['listingimage']['url'] %}
+                    <div class="interactiveImg">
+                        <img src="{{ person['listingimage']['url'] }}">
+                    </div>
+                {% else %}
+                    <div class="interactiveImgNotFound">
+                        <img src="/static/images/NPSLogo.png">
+                    </div>
+                {% endif %}
+                <h3>{{ person['title'] }}</h3>
+                <div class="interactiveDesOverlay">
+                    <p>{{ person['listingdescription'] }}</p>
+                    <br>
+                    <p>Click on this card to learn more!</p>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

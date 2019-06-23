@@ -115,10 +115,26 @@ class NPS():
         data = r.json()
         data = data['data']
         return data
+    
+    # Education: Lesson Plans
+    def getLessonData(self, parkCode) -> list:
+        r = requests.get('https://developer.nps.gov/api/v1/lessonplans?parkCode=' + parkCode +
+        '&api_key=' + self._apiKey)
+        data = r.json()
+        data = data['data']
+        return data
+
+    # People: People
+    def getPeopleData(self, parkCode) -> list:
+        r = requests.get('https://developer.nps.gov/api/v1/people?parkCode=' + parkCode +
+        '&api_key=' + self._apiKey)
+        data = r.json()
+        data = data['data']
+        return data
 
     # Events
     def getEventsData(self, parkCode) -> list:
-        r = requests.get('https://developer.nps.gov/api/v1/events?parkCode=' + parkCode +
+        r = requests.get('https://developer.nps.gov/api/v1/people?parkCode=' + parkCode +
         '&api_key=' + self._apiKey)
         data = r.json()
         data = data['data']

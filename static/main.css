@@ -321,7 +321,7 @@ footer img {
 #backLink {
     margin-top: 2em;
     margin-bottom: 1em;
-    width: 30%;
+    float: left;
 }
 
 #backLink a{
@@ -419,7 +419,9 @@ ul{
     padding: 1em;
 }
 
-#articleCard {
+/* Used in Articles,Education: People */
+
+.interactiveCard {
     width: 25em;
     float: left;
     height: 25em;
@@ -428,34 +430,28 @@ ul{
     position: relative;
 }
 
-#articleCard h3 {
+.interactiveCard h3 {
     margin: .5em 0em 0em .5em;
 }
 
-#articleImg {
+.interactiveImg {
     width: 25em;
     height: 20em;
 }
 
-#articleImg img{
+.interactiveImg img{
     width: 100%;
     height: 100%;
     border-radius: 1em 1em 0em 0em;
 }
 
-#articleImgNotFound img{
+.interactiveImgNotFound img{
     width: 25em;
     height: 20em;
     border-radius: 1em 1em 0em 0em;
 }
 
-#articleTitle {
-    height: 5em;
-    padding-left: 0.5em;
-    margin-top: -5em;
-}
-
-#articleDesOverlay {
+.interactiveDesOverlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -469,10 +465,10 @@ ul{
     border-radius: 1em;
 }
 
-#articleDesOverlay p {
+.interactiveDesOverlay p {
     margin: 1em;
 }
 
-#articleCard:hover #articleDesOverlay{
+.interactiveCard:hover .interactiveDesOverlay{
     opacity: .95;
 }
