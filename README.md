@@ -1,4 +1,4 @@
-# National Park Service Information Kiosk  
+# National Park Service Information Kiosk (Winner)
 A deployed web application that makes use of the NPS Data API in order to function as an Information Kiosk for the National Park Service.
 
 Access the site here: https://npskioskdfel.herokuapp.com/
