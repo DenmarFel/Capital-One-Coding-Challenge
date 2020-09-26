@@ -31,7 +31,7 @@ $ flask run
 ```
 - Windows PowerShell
 ```
-> $env:FLASK_APP = "hello"
+> $env:FLASK_APP = "nps"
 > flask run
 ```
 In your browser enter: localhost:5000
